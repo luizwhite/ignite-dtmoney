@@ -1,8 +1,12 @@
+import { Dashboard } from "./components/Dashboard"
+import { Header } from "./components/Header"
+
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Header />
+      <Dashboard />
+    </>
   );
 };
 

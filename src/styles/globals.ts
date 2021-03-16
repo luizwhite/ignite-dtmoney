@@ -51,6 +51,10 @@ export default styled.createGlobalStyle`
     color: var(--text-title);
   }
 
+  strong {
+    display: block;
+  }
+
   h1,
   h2,
   h3,
