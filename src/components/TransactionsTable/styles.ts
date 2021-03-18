@@ -39,6 +39,14 @@ export const Container = styled.div`
         padding-right: 2rem;
         border-radius: 0 6px 6px 0;
       }
+
+      &.deposit {
+        color: var(--green);
+      }
+
+      &.withdraw {
+        color: var(--red);
+      }
     }
   }
 `;
