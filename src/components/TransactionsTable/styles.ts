@@ -9,6 +9,8 @@ export const Container = styled.div`
 
     th,
     td {
+      vertical-align: middle;
+      
       &:first-child {
         padding-left: 2rem;
       }
@@ -24,6 +26,7 @@ export const Container = styled.div`
     }
 
     td {
+      height: 70px;
       padding: 1.25rem 0;
       background-color: var(--shape);
 
