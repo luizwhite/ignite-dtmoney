@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { transparentize } from 'polished';
+
+import { rootColors } from '../../styles/globals';
 
 export const Container = styled.div`
   margin-top: -50px;
@@ -10,7 +13,7 @@ export const Container = styled.div`
     th,
     td {
       vertical-align: middle;
-      
+
       &:first-child {
         padding-left: 2rem;
       }
@@ -45,7 +48,7 @@ export const Container = styled.div`
       }
 
       &.withdraw {
-        color: var(--red);
+        color: ${transparentize(0.3, rootColors.red)};
       }
     }
   }

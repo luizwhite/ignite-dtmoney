@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react';
 import Modal from 'react-modal';
 
+import { TransactionsProvider } from './hooks/useTransactions';
+
 import { Dashboard } from './components/Dashboard';
 import { Header } from './components/Header';
 import { NewTransactionModal } from './components/NewTransactionModal';
@@ -21,7 +23,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
 
@@ -29,7 +31,7 @@ const App: React.FC = () => {
         isOpen={isNewTransactionModalOpen}
         onRequestClose={handleCloseNewTransactionModal}
       />
-    </>
+    </TransactionsProvider>
   );
 };
 

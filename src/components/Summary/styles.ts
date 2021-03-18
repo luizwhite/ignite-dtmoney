@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { transparentize } from 'polished';
+
+import { rootColors } from '../../styles/globals';
 
 export const Container = styled.div`
   display: grid;
@@ -27,6 +30,10 @@ export const Container = styled.div`
       font-size: 2rem;
       font-weight: 500;
       line-height: 3rem;
+    }
+
+    &:nth-child(2) strong {
+      color: ${transparentize(0.3, rootColors.red)};
     }
 
     &:last-child {

@@ -1,26 +1,31 @@
-import { useCallback, useEffect, useState } from 'react';
-import { api } from '../../services/api';
+import { useCallback } from 'react';
+
+import { useTransactions } from '../../hooks/useTransactions';
+// import { api } from '../../services/api';
+
 import { Container } from './styles';
 
-interface Transaction {
-  title: string;
-  type: 'withdraw' | 'deposit';
-  amount: number;
-  category: string;
-  createdAt: string;
-}
+// interface Transaction {
+//   title: string;
+//   type: 'withdraw' | 'deposit';
+//   amount: number;
+//   category: string;
+//   createdAt: string;
+// }
 
 const TransactionsTable: React.FC = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  // const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  const formatCurrency = useCallback(
-    (amount, type) =>
-      new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(type === 'withdraw' ? -amount : amount),
-    [],
-  );
+  const { transactions } = useTransactions();
+
+  const formatCurrency = useCallback((amount, type) => {
+    const stringValue = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(type === 'withdraw' ? -amount : amount);
+
+    return stringValue.replace('-', '- ');
+  }, []);
 
   const formatDate = useCallback(
     (dateISO8601) =>
@@ -28,11 +33,11 @@ const TransactionsTable: React.FC = () => {
     [],
   );
 
-  useEffect(() => {
-    api
-      .get<{ transactions: Transaction[] }>('/transactions')
-      .then(({ data }) => setTransactions(data.transactions));
-  }, []);
+  // useEffect(() => {
+  //   api
+  //     .get<{ transactions: Transaction[] }>('/transactions')
+  //     .then(({ data }) => setTransactions(data.transactions));
+  // }, []);
 
   return (
     <Container>
