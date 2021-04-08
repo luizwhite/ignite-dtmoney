@@ -29,7 +29,7 @@ Simple transactions CRA application idea made during Ignite ReactJS
 ## 💻 Installation
 ```bash
 # Open terminal and clone this repository
-$ git clone https://github.com/luizwhite/iliketomoveit-nextjs-nlw04.git
+$ git clone https://github.com/luizwhite/ignite-dtmoney.git
 
 # Install dependencies
 $ yarn
